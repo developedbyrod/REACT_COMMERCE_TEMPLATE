@@ -186,6 +186,7 @@ export default function Navbar() {
 
     const [submenuActive, setSubmenuActive] = useState(null);
     const [submenuHovered, setSubmenuHovered] = useState(false);
+    const [mobileMenuActive, setMobileMenuActive] = useState(true);
 
     const handleSubmenu = (index) => {
         setSubmenuActive(index);
@@ -198,13 +199,24 @@ export default function Navbar() {
 
     }
 
+    const handleMobileMenu = () => {
+        console.log("mobile menu");
+    }
+
+
     return (
         <header className="flex items-center w-full px-5 py-6 shadow-md mb-5">
-            <div className="mx-auto flex-col items-center w-full">
 
+            {/* OVERLAY */}
+            <div 
+                className={`${mobileMenuActive ? 'absolute top-0 right-0 w-full h-full z-10 bg-[rgba(0,0,0,0.5)]' : 'hidden'}`}
+                onClick={() => setMobileMenuActive(false)}
+                ></div>
+
+            <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
 
-                    <div className="hidden md:flex md:w-full md:justify-between items-center">
+                    <div className="flex w-full justify-between items-center">
                         <div className="flex w-full">
                             <h1 className="text-black text-2xl font-bold">{templateData.headerContent.logoImg}</h1>
                         </div>
@@ -225,53 +237,63 @@ export default function Navbar() {
                         </div>
 
                     </div>
-
-                    <div className="flex md:hidden jusitfy-between w-full">
-
-                        <div className="flex logo_mobile flex-1">
-                            <h1>{templateData.website.name}</h1>
-                        </div>
-
-                        <div className="flex text-green-400">
-                            <button>Menu</button>
-                        </div>
-                    </div>
                 </div>
-
 
                 {/* Links e Sublinks */}
-
                 <div className="flex w-full max-w-[800px] mx-auto jusitfy-center mt-6">
-                   
-                        {templateData.headerContent.navLinks.map((navLink, index) => (
-                            <div
-                                className="container sublinks relative cursor-pointer flex items-center justify-center"
-                                key={index}
-                                onMouseEnter={() => handleSubmenu(index)}
-                                onMouseLeave={handleSubmenuLeave}
-                            >
-                                <div className="flex">
-                                    <span className="cursor-pointer">{navLink.name}</span>
-                                </div>
-                                
-                                <div  className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg' : 'hidden'}`}
-                                        onMouseLeave={() => setSubmenuHovered(false)}>
-                                    <ul
-                                       
-                                    >
-                                        {navLink.sub_links.map((sublink, index) => (
-                                            <li key={index}>
-                                                <Link to={sublink.link} className="relative">
-                                                    {sublink.name}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
+
+                    {templateData.headerContent.navLinks.map((navLink, index) => (
+                        <div
+                            className="container sublinks relative cursor-pointer flex items-center justify-center"
+                            key={index}
+                            onMouseEnter={() => handleSubmenu(index)}
+                            onMouseLeave={handleSubmenuLeave}
+                        >
+                            <div className="flex">
+                                <span className="cursor-pointer">{navLink.name}</span>
                             </div>
-                        ))}
+
+                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg' : 'hidden'}`}
+                                onMouseLeave={() => setSubmenuHovered(false)}>
+                                <ul
+
+                                >
+                                    {navLink.sub_links.map((sublink, index) => (
+                                        <li key={index}>
+                                            <Link to={sublink.link} className="relative">
+                                                {sublink.name}
+                                            </Link>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex md:hidden justify-between items-center w-full relative">
+                <div className="logoMobile flex">
+                    <h1>{templateData.headerContent.logoImg}</h1>
                 </div>
 
+                <div className="flex">
+
+                    <input type="button" value="MENU" />
+                </div>
+            </div>
+
+            {/* OPEN MENU */}
+            <div className={`${mobileMenuActive ? 'flex flex-col p-4 bg-white h-screen absolute top-0 right-0 z-20 w-[70vw]' : 'hidden'}`}>
+                <nav>
+                    <ul>
+                        {templateData.headerContent.navLinks.map((navLink, index) => (
+                            <li key={index}>
+                                <Link to={navLink.link}>{navLink.name}</Link>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </div>
 
         </header>
