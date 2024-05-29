@@ -3,13 +3,6 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const templateData = {
-
-    website: {
-        name: "E-Shop",
-        desc: "lorem ipsum",
-        logo: "logo here"
-    },
-
     products: [
         {
             id: 1,
@@ -34,7 +27,7 @@ const templateData = {
         },
     ],
     headerContent: {
-        logoImg: "lorem ipsum",
+        logoImg: "Logo Here",
         socialIcons: [
             {
                 name: "Facebook",
@@ -208,12 +201,6 @@ export default function Navbar() {
         setSubmenuHovered(true);
     }
 
-    const handleSubmenuLeave = () => {
-
-        if (submenuHovered === false) setSubmenuActive(null);
-
-    }
-
     const handleMobileMenu = () => {
         setMobileMenuActive(!mobileMenuActive);
     }
@@ -275,20 +262,23 @@ export default function Navbar() {
                 </div>
 
                 {/* Links e Sublinks */}
-                <div className="flex w-full max-w-[800px] mx-auto jusitfy-center mt-6">
+                
+                <div className="flex w-full max-w-[800px] mx-auto jusitfy-center pt-7">
 
                     {templateData.headerContent.navLinks.map((navLink, index) => (
                         <div
                             className="container sublinks relative cursor-pointer flex items-center justify-center"
                             key={index}
-                            onMouseEnter={() => handleSubmenu(index)}
-                            onMouseLeave={handleSubmenuLeave}
                         >
                             <div className="flex">
-                                <span className="cursor-pointer">{navLink.name}</span>
+                                <span 
+                                className="cursor-pointer"
+                                onMouseEnter={() => handleSubmenu(index)}
+                                onMouseLeave={() => setSubmenuHovered(false)}
+                                >{navLink.name}</span>
                             </div>
 
-                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg' : 'hidden'}`}
+                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
                                 onMouseLeave={() => setSubmenuHovered(false)}>
                                 <ul
 
