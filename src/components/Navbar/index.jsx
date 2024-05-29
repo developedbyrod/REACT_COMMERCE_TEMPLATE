@@ -221,7 +221,9 @@ export default function Navbar() {
                 onClick={() => setMobileMenuActive(false)}
             ></div>
 
+
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
+            {submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent" onMouseEnter={() => {handleSubmenuLeave, setSubmenuHovered(false)}}></div>}
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
 
                     <div className="flex w-full justify-between items-center">
@@ -270,7 +272,6 @@ export default function Navbar() {
                 {/* Links e Sublinks */}
                 
                 <div className="flex w-full max-w-[800px] mx-auto jusitfy-center pt-7">
-
                     {templateData.headerContent.navLinks.map((navLink, index) => (
                         <div
                             className="container sublinks relative cursor-pointer flex items-center justify-center"
@@ -323,7 +324,6 @@ export default function Navbar() {
                     </ul>
                 </nav>
             </div>
-
         </header>
     )
 }
