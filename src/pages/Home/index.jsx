@@ -1,9 +1,10 @@
 import React from 'react'
+import Slider from '../../components/Slider'
 
 export default function HomePage() {
   return (
-    <div>
-        <h1>Welcome to the Home Page</h1>
-    </div>
+   
+        <Slider/>
+    
   )
 }

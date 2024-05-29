@@ -213,7 +213,7 @@ export default function Navbar() {
 
 
     return (
-        <header className="flex items-center w-full px-5 py-6 shadow-md mb-5">
+        <header className="flex items-center w-full px-5 py-6 shadow-md">
 
             {/* OVERLAY */}
             <div
@@ -282,7 +282,7 @@ export default function Navbar() {
                                 <span className="cursor-pointer">{navLink.name}</span>
                             </div>
 
-                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
+                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute z-10 left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
                                 onMouseLeave={() => setSubmenuHovered(false)}>
                                 <ul
 
