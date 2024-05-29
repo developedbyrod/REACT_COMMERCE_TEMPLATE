@@ -201,6 +201,12 @@ export default function Navbar() {
         setSubmenuHovered(true);
     }
 
+    const handleSubmenuLeave = () => {
+
+        if (submenuHovered === false) setSubmenuActive(null);
+
+    }
+
     const handleMobileMenu = () => {
         setMobileMenuActive(!mobileMenuActive);
     }
@@ -269,13 +275,11 @@ export default function Navbar() {
                         <div
                             className="container sublinks relative cursor-pointer flex items-center justify-center"
                             key={index}
+                            onMouseEnter={() => handleSubmenu(index)}
+                            onMouseLeave={handleSubmenuLeave}
                         >
                             <div className="flex">
-                                <span 
-                                className="cursor-pointer"
-                                onMouseEnter={() => handleSubmenu(index)}
-                                onMouseLeave={() => setSubmenuHovered(false)}
-                                >{navLink.name}</span>
+                                <span className="cursor-pointer">{navLink.name}</span>
                             </div>
 
                             <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
