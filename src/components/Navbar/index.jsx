@@ -1,3 +1,4 @@
+import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -34,6 +35,20 @@ const templateData = {
     ],
     headerContent: {
         logoImg: "lorem ipsum",
+        socialIcons: [
+            {
+                name: "Facebook",
+                link: "https://facebook.com"
+            },
+            {
+                name: "Instagram",
+                link: "https://instagram.com"
+            },
+            {
+                name: "Twitter",
+                link: "https://twitter.com"
+            }
+        ],
         navLinks: [
             {
                 name: "Home",
@@ -186,7 +201,7 @@ export default function Navbar() {
 
     const [submenuActive, setSubmenuActive] = useState(null);
     const [submenuHovered, setSubmenuHovered] = useState(false);
-    const [mobileMenuActive, setMobileMenuActive] = useState(true);
+    const [mobileMenuActive, setMobileMenuActive] = useState(false);
 
     const handleSubmenu = (index) => {
         setSubmenuActive(index);
@@ -200,7 +215,7 @@ export default function Navbar() {
     }
 
     const handleMobileMenu = () => {
-        console.log("mobile menu");
+        setMobileMenuActive(!mobileMenuActive);
     }
 
 
@@ -208,10 +223,10 @@ export default function Navbar() {
         <header className="flex items-center w-full px-5 py-6 shadow-md mb-5">
 
             {/* OVERLAY */}
-            <div 
+            <div
                 className={`${mobileMenuActive ? 'absolute top-0 right-0 w-full h-full z-10 bg-[rgba(0,0,0,0.5)]' : 'hidden'}`}
                 onClick={() => setMobileMenuActive(false)}
-                ></div>
+            ></div>
 
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
@@ -233,7 +248,27 @@ export default function Navbar() {
 
 
                         <div className="flex w-full justify-end">
-                            icons
+                            <div className="flex gap-5">
+                                {templateData.headerContent.socialIcons.map((socialIcon, index) => {
+                                    let iconName;
+
+                                    if (socialIcon.name === "Facebook") {
+                                        iconName = "akar-icons:facebook-fill";
+                                    } else if (socialIcon.name === "Instagram") {
+                                        iconName = "akar-icons:instagram-fill";
+                                    } else if (socialIcon.name === "Twitter") {
+                                        iconName = "akar-icons:twitter-fill";
+                                    }
+
+                                    return (
+                                        <Link key={index} to={socialIcon.link}>
+                                            <Icon icon={iconName} fontSize={30} />
+                                        </Link>
+                                    );
+                                    
+                                })}
+
+                            </div>
                         </div>
 
                     </div>
@@ -278,8 +313,7 @@ export default function Navbar() {
                 </div>
 
                 <div className="flex">
-
-                    <input type="button" value="MENU" />
+                    <input type="button" value="MENU" onClick={handleMobileMenu} />
                 </div>
             </div>
 
