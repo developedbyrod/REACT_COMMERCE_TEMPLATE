@@ -318,9 +318,9 @@ export default function Navbar() {
             {/* OPEN MENU */}
             <div className={`${mobileMenuActive ? 'flex flex-col p-4 bg-white h-screen absolute top-0 right-0 z-20 w-[70vw]' : 'hidden'}`}>
                 <nav>
-                    <ul>
+                    <ul className="flex flex-col gap-5 items-center">
                         {templateData.headerContent.navLinks.map((navLink, index) => (
-                            <li key={index}>
+                            <li key={index} className="flex">
                                 <Link to={navLink.link}>{navLink.name}</Link>
                             </li>
                         ))}

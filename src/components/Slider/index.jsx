@@ -75,7 +75,7 @@ const handlePreviousSlide = () => {
                   className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full opacity-70 hover:opacity-100"
                 >
                   <div className="relative w-full flex items-center justify-center">
-                      <Icon icon="simple-line-icons:arrow-left" className="w-8 h-8 text-white"/>
+                      <Icon icon="simple-line-icons:arrow-left" className="h-4 w-4 md:w-8 md:h-8 text-white"/>
                   </div>
                 </button>
 
@@ -84,7 +84,7 @@ const handlePreviousSlide = () => {
                   className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full opacity-70 hover:opacity-100"
                 >
                      <div className="relative w-full flex items-center justify-center">
-                      <Icon icon="simple-line-icons:arrow-right" className="w-8 h-8 text-white"/>
+                      <Icon icon="simple-line-icons:arrow-right" className="h-4 w-4 md:w-8 md:h-8 text-white"/>
                   </div>
                 </button>
               </>
