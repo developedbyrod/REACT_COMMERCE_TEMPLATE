@@ -30,15 +30,15 @@ const templateData = {
         logoImg: "Logo Here",
         socialIcons: [
             {
-                name: "Facebook",
+                name: "account",
                 link: "https://facebook.com"
             },
             {
-                name: "Instagram",
+                name: "wish",
                 link: "https://instagram.com"
             },
             {
-                name: "Twitter",
+                name: "bag",
                 link: "https://twitter.com"
             }
         ],
@@ -223,7 +223,7 @@ export default function Navbar() {
 
 
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
-            {submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent" onMouseEnter={() => {handleSubmenuLeave, setSubmenuHovered(false)}}></div>}
+                {submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent" onMouseEnter={() => { handleSubmenuLeave, setSubmenuHovered(false) }}></div>}
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
 
                     <div className="flex w-full justify-between items-center">
@@ -247,20 +247,23 @@ export default function Navbar() {
                                 {templateData.headerContent.socialIcons.map((socialIcon, index) => {
                                     let iconName;
 
-                                    if (socialIcon.name === "Facebook") {
-                                        iconName = "akar-icons:facebook-fill";
-                                    } else if (socialIcon.name === "Instagram") {
-                                        iconName = "akar-icons:instagram-fill";
-                                    } else if (socialIcon.name === "Twitter") {
+                                    if (socialIcon.name === "account") {
+                                        iconName = "mingcute:shopping-bag-3-fill";
+                                    } else if (socialIcon.name === "wish") {
+                                        iconName = "ic:sharp-account-circle";
+                                    } else if (socialIcon.name === "bag") {
                                         iconName = "akar-icons:twitter-fill";
+
                                     }
 
                                     return (
-                                        <Link key={index} to={socialIcon.link}>
+
+                                        <Link key={index} to={socialIcon.link} className="hover:text-green-600">
                                             <Icon icon={iconName} fontSize={30} />
                                         </Link>
+
                                     );
-                                    
+
                                 })}
 
                             </div>
@@ -270,7 +273,7 @@ export default function Navbar() {
                 </div>
 
                 {/* Links e Sublinks */}
-                
+
                 <div className="flex w-full max-w-[800px] mx-auto jusitfy-center pt-7">
                     {templateData.headerContent.navLinks.map((navLink, index) => (
                         <div
@@ -283,13 +286,13 @@ export default function Navbar() {
                                 <span className="cursor-pointer">{navLink.name}</span>
                             </div>
 
-                            <div className={`sublinks_active p-4 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute z-10 left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
+                            <div className={`sublinks_active p-2 bg-white ${submenuActive === index && submenuHovered === true ? 'flex-col absolute z-10 left-0 top-10 w-[300px] shadow-lg rounded-lg' : 'hidden'}`}
                                 onMouseLeave={() => setSubmenuHovered(false)}>
                                 <ul
 
                                 >
                                     {navLink.sub_links.map((sublink, index) => (
-                                        <li key={index}>
+                                        <li key={index} className="my-4">
                                             <Link to={sublink.link} className="relative">
                                                 {sublink.name}
                                             </Link>
