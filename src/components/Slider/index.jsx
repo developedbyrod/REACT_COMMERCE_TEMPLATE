@@ -26,7 +26,6 @@ const sliderData = {
   showDots: true,
   showLink: false,
   width: 'full',
-  height: '700px'
 }
 
 
@@ -54,7 +53,7 @@ const handlePreviousSlide = () => {
                         <div className={`w-full relative `}>
                           <div className={`w-full`}>
 
-                            <div className={`flex w-screen  max-w-full h-[${data.height}] bg-cover bg-center`} style={{backgroundImage: `url(${slide.url})`}}></div>
+                            <div className={`flex h-[500px] w-screen  max-w-full md:h-[700px] bg-cover bg-center`} style={{backgroundImage: `url(${slide.url})`}}></div>
 
                             {showLink && (
                               <div className="absolute z-5 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
@@ -76,7 +75,7 @@ const handlePreviousSlide = () => {
                   className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full opacity-70 hover:opacity-100"
                 >
                   <div className="relative w-full flex items-center justify-center">
-                      <Icon icon="simple-line-icons:arrow-left" className="w-12 h-12 text-white"/>
+                      <Icon icon="simple-line-icons:arrow-left" className="w-8 h-8 text-white"/>
                   </div>
                 </button>
 
@@ -85,7 +84,7 @@ const handlePreviousSlide = () => {
                   className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 p-4 rounded-full opacity-70 hover:opacity-100"
                 >
                      <div className="relative w-full flex items-center justify-center">
-                      <Icon icon="simple-line-icons:arrow-right" className="w-12 h-12 text-white"/>
+                      <Icon icon="simple-line-icons:arrow-right" className="w-8 h-8 text-white"/>
                   </div>
                 </button>
               </>
