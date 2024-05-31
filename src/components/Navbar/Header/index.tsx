@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { HeaderDataProps } from "../../types";
-import Searchbar from "../Searchbar";
-import Overlay from "../Overlay";
-import NavbarIcons from "./NavbarIcons";
-import NavLinks from "./Navlinks";
+import { HeaderDataProps } from "../../../types";
+import Searchbar from "../../Searchbar";
+import NavbarIcons from "../NavbarIcons";
+import Overlay from "../../Overlay";
+import SiteLogo from "../../Logo";
+import NavLinks from "../Navlinks";
 
-export default function Navbar(data: HeaderDataProps) {
-
+export default function Header(data: HeaderDataProps) {
+    // const [submenuActive, setSubmenuActive] = useState<number | null>(null);
     const [submenuHovered, setSubmenuHovered] = useState<boolean>(false);
     const [mobileMenuActive, setMobileMenuActive] = useState<boolean>(false);
 
@@ -20,12 +21,12 @@ export default function Navbar(data: HeaderDataProps) {
 
     return (
         <header className="flex items-center w-full px-5 py-6 shadow-md">
-            
-            <Overlay 
-                overalayActive={mobileMenuActive} 
+
+            <Overlay
+                overalayActive={mobileMenuActive}
                 setOverlayActive={setMobileMenuActive}
             />
-            
+
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
                 {
                     submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent"
@@ -33,20 +34,25 @@ export default function Navbar(data: HeaderDataProps) {
                     >
                     </div>}
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
-
                     <div className="flex w-full justify-between items-center">
 
-                        <Searchbar placeholder="Search products" value="" />
+                        <SiteLogo
+                            {...data.headerContent.logo}
+                            className="w-[150px] max-w-[100%] object-contain"
+                        />
 
-                        <NavbarIcons {...data} />
+                        <Searchbar
+                            placeholder="Search products"
+                        />
+
+                        <NavbarIcons
+                            {...data}
+                        />
 
                     </div>
                 </div>
 
-                {/* Links e Sublinks */}
-
-                <NavLinks {...data} />
-
+                <NavLinks {...data}/>
             </div>
 
             <div className="flex md:hidden justify-between items-center w-full relative">

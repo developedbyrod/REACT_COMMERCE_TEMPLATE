@@ -13,6 +13,25 @@ export type sliderButtonProps = {
     onClick: () => void;
 }
 
+export type SearchbarProps = {
+    value?: string | undefined;
+    placeholder: string;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    ref?: React.RefObject<HTMLInputElement>;
+}
+
+export type SiteLogoProps = {
+    image?: string;
+    url?: string;
+    width?: string;
+    height?: string;
+    maxWidth?: string;
+    maxHeight?: string;
+    display?: string;
+    className?: string;
+}
+
+
 export type credentialsProps = {
     user: {
         email: string;
@@ -24,7 +43,14 @@ export type credentialsProps = {
 
 export type HeaderDataProps = {
     headerContent: {
-        logoImg: string;
+        logo:{
+            image:string;
+            url: string;
+            width?: string;
+            height?: string;
+            maxWidth?: string;
+            maxHeight?: string;
+        }
         socialIcons: { name: string; link: string }[];
         navLinks: {
             name: string;
