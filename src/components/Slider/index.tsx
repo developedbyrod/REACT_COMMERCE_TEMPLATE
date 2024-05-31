@@ -6,7 +6,6 @@ import { sliderProps } from "../../types";
 export default function Slider(data : sliderProps){  
   const [currentSlide, setCurrentSlide] = useState(0);
   const length = data.slides.length;
-  const [showArrows, setShowArrows] = useState(data.showArrows);
 
 const handleNextSlide = () => {
   setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
