@@ -7,7 +7,6 @@ export default function Slider(data : sliderProps){
   const [currentSlide, setCurrentSlide] = useState(0);
   const length = data.slides.length;
   const [showArrows, setShowArrows] = useState(data.showArrows);
-  const [showLink, setShowLink] = useState(data.showLink);
 
 const handleNextSlide = () => {
   setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
@@ -29,7 +28,7 @@ const handlePreviousSlide = () => {
 
                             <div className={`flex h-[500px] w-screen  max-w-full md:h-[700px] bg-cover bg-center`} style={{backgroundImage: `url(${slide.url})`}}></div>
 
-                            {showLink && (
+                            {data.showLink && (
                               <div className="absolute z-5 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
                                   <Link 
                                     to={slide.link}
@@ -46,7 +45,7 @@ const handlePreviousSlide = () => {
                 </>
               )
             })}
-            {showArrows && (
+            {data.showArrows && (
               <>
                 <button 
                   onClick={handlePreviousSlide} 
