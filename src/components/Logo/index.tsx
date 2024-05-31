@@ -3,8 +3,6 @@ import { SiteLogoProps } from "../../types";
 
 
 export default function Logo({ url, image, width, height, maxWidth, maxHeight, display, className }: SiteLogoProps) {
-    console.log("site logo")
-    console.log("Render Logo")
     return (
         <div className="flex w-full">
             <Link to={url || ""} className="flex w-full">

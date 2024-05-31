@@ -20,7 +20,7 @@ const handlePreviousSlide = () => {
         <div className={`relative flex items-center justify-center w-full overflow-hidden`}>
             {data.slides.map((slide, index) => {
               return(
-                <>
+                
                   <div className={index === currentSlide ? 'flex' : 'hidden'} key={index}>
                         <div className={`w-full relative `}>
                           <div className={`w-full`}>
@@ -39,9 +39,7 @@ const handlePreviousSlide = () => {
                             )}
                           </div>
                         </div>
-
                   </div>
-                </>
               )
             })}
             {data.showArrows && (
