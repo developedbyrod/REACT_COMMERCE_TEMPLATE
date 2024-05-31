@@ -8,22 +8,11 @@ import NavLinks from "../Navlinks";
 import MobileNav from "../MobileNav";
 
 export default function Header(data: HeaderDataProps) {
-    const [submenuHovered, setSubmenuHovered] = useState<boolean>(false);
-    const [mobileMenuActive, setMobileMenuActive] = useState<boolean>(false);
-    console.log(data)
-
-
+    let mobileMenuActive = false;
     return (
         <header className="flex items-center w-full px-5 py-6 shadow-md">
-
             <Overlay overlayActive={mobileMenuActive}/>
-
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
-                {
-                    submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent"
-                        onMouseEnter={() => { setSubmenuHovered(false) }}
-                    >
-                    </div>}
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
                     <div className="flex w-full justify-between items-center">
                         <SiteLogo
