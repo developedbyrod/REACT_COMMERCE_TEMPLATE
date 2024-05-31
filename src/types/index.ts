@@ -13,6 +13,14 @@ export type sliderButtonProps = {
     onClick: () => void;
 }
 
+
+export type OverlayProps = {
+    overlayActive: boolean;
+    onClick?: () => void;
+    className?: string;
+}
+
+
 export type SearchbarProps = {
     value?: string | undefined;
     placeholder: string;

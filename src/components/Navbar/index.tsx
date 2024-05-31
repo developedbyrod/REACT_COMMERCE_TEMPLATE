@@ -21,17 +21,13 @@ export default function Navbar(data: HeaderDataProps) {
     return (
         <header className="flex items-center w-full px-5 py-6 shadow-md">
             
-            <Overlay 
-                overalayActive={mobileMenuActive} 
-                setOverlayActive={setMobileMenuActive}
-            />
-            
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
                 {
                     submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent"
                         onMouseEnter={() => { setSubmenuHovered(false) }}
                     >
                     </div>}
+
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
 
                     <div className="flex w-full justify-between items-center">
