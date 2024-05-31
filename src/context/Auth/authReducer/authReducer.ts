@@ -1,4 +1,6 @@
-const initialState = {
+import { ActionType, AuthStateType } from "../../../types"
+
+const initialState: AuthStateType = {
     isAuthenticated: false,
     user:null,
     error:null,
@@ -6,7 +8,7 @@ const initialState = {
 }
 
 
-const authReducer = (state, action) => {
+const authReducer = (state : any, action : ActionType) => {
     switch(action.type){
         case "LOGIN_START":
             return{

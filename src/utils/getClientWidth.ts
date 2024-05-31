@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-// import { ScreenSize } from "../types";
-
 export const getClientWidth = () => {
   const [screenSize, setScreenSize] = useState('desktop');
 

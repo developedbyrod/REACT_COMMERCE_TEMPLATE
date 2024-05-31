@@ -192,11 +192,11 @@ const templateData = {
 }
 export default function Navbar() {
 
-    const [submenuActive, setSubmenuActive] = useState(null);
-    const [submenuHovered, setSubmenuHovered] = useState(false);
-    const [mobileMenuActive, setMobileMenuActive] = useState(false);
+    const [submenuActive, setSubmenuActive] = useState<number | null>(null);
+    const [submenuHovered, setSubmenuHovered] = useState<boolean>(false);
+    const [mobileMenuActive, setMobileMenuActive] = useState<boolean>(false);
 
-    const handleSubmenu = (index) => {
+    const handleSubmenu = (index: number) => {
         setSubmenuActive(index);
         setSubmenuHovered(true);
     }
@@ -223,7 +223,7 @@ export default function Navbar() {
 
 
             <div className="hidden md:flex mx-auto md:flex-col items-center w-full">
-                {submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent" onMouseEnter={() => { handleSubmenuLeave, setSubmenuHovered(false) }}></div>}
+                {submenuHovered && <div className="absolute z-5 w-full h-[100px] bg-transparent" onMouseEnter={() => { setSubmenuHovered(false) }}></div>}
                 <div className="flex items-center w-full border-b-[0.5px] border-[#ccc] pb-5">
 
                     <div className="flex w-full justify-between items-center">
@@ -257,11 +257,9 @@ export default function Navbar() {
                                     }
 
                                     return (
-
                                         <Link key={index} to={socialIcon.link} className="hover:text-green-600">
-                                            <Icon icon={iconName} fontSize={30} />
+                                            <Icon icon={iconName || ""} fontSize={30} />
                                         </Link>
-
                                     );
 
                                 })}
