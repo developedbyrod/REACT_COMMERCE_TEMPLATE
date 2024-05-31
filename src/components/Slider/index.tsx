@@ -1,35 +1,9 @@
 import { Link } from "react-router-dom";
 import {useState} from 'react';
 import { Icon } from "@iconify/react/dist/iconify.js";
-const sliderData = {
-  slides: [
-    {
-      url:"https://plus.unsplash.com/premium_photo-1669239112427-bfbc84fcd74c?q=80&w=2008&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link:"https://www.google.com",
-    },
-    {
-      url:"https://images.unsplash.com/photo-1494500764479-0c8f2919a3d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link:"https://www.google.com",
-    },
-    {
-      url:"https://plus.unsplash.com/premium_photo-1676139292819-5566666a42cb?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link:"https://www.google.com",
-    },
-    {
-      url:"https://images.unsplash.com/photo-1704192257598-be5cb6e710e7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      link:"https://www.google.com",
-    },
-  ],
-  autoPlay: true,
-  interval: 5000,
-  showArrows: true,
-  showDots: true,
-  showLink: false,
-  width: 'full',
-}
+import { sliderProps } from "../../types";
 
-
-export default function Slider({data = sliderData}){  
+export default function Slider(data : sliderProps){  
   const [currentSlide, setCurrentSlide] = useState(0);
   const length = data.slides.length;
   const [showArrows, setShowArrows] = useState(data.showArrows);
@@ -57,10 +31,14 @@ const handlePreviousSlide = () => {
 
                             {showLink && (
                               <div className="absolute z-5 top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center">
-                                  <Link to={slide.link}>Saiba Mais</Link>
+                                  <Link 
+                                    to={slide.link}
+                                    className="bg-green-500 px-8 py-4 rounded-lg shadow-lg text-white hover:bg-green-600 transition-all duration-300 ease-in-out"
+                                >
+                                    Saiba Mais
+                                </Link>
                               </div>
                             )}
-                              {/* <img src={slide.url} alt="Carrousel Image" className="" /> */}
                           </div>
                         </div>
 

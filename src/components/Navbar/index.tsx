@@ -1,196 +1,9 @@
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { HeaderDataProps } from "../../types";
 
-const templateData = {
-    products: [
-        {
-            id: 1,
-            name: "Product 1",
-            desc: "lorem ipsum",
-            image: "lorem ipsum",
-            variants: ["Black", "Red", "Green"]
-        },
-        {
-            id: 2,
-            name: "Product 1",
-            desc: "lorem ipsum",
-            image: "lorem ipsum",
-            variants: ["Black", "Red", "Green"]
-        },
-        {
-            id: 3,
-            name: "Product 1",
-            desc: "lorem ipsum",
-            image: "lorem ipsum",
-            variants: ["Black", "Red", "Green"]
-        },
-    ],
-    headerContent: {
-        logoImg: "Logo Here",
-        socialIcons: [
-            {
-                name: "account",
-                link: "https://facebook.com"
-            },
-            {
-                name: "wish",
-                link: "https://instagram.com"
-            },
-            {
-                name: "bag",
-                link: "https://twitter.com"
-            }
-        ],
-        navLinks: [
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-        ],
-    }
-}
-export default function Navbar() {
+export default function Navbar(data : HeaderDataProps) {
 
     const [submenuActive, setSubmenuActive] = useState<number | null>(null);
     const [submenuHovered, setSubmenuHovered] = useState<boolean>(false);
@@ -210,6 +23,7 @@ export default function Navbar() {
     const handleMobileMenu = () => {
         setMobileMenuActive(!mobileMenuActive);
     }
+    console.log(data)
 
 
     return (
@@ -228,7 +42,7 @@ export default function Navbar() {
 
                     <div className="flex w-full justify-between items-center">
                         <div className="flex w-full">
-                            <h1 className="text-black text-2xl font-bold">{templateData.headerContent.logoImg}</h1>
+                            <h1 className="text-black text-2xl font-bold">{data.headerContent.logoImg}</h1>
                         </div>
 
 
@@ -244,11 +58,14 @@ export default function Navbar() {
 
                         <div className="flex w-full justify-end">
                             <div className="flex gap-5">
-                                {templateData.headerContent.socialIcons.map((socialIcon, index) => {
+                                {data.headerContent.socialIcons.map((socialIcon, index) => {
                                     let iconName;
+                                    let onClickFn;
 
                                     if (socialIcon.name === "account") {
                                         iconName = "mingcute:shopping-bag-3-fill";
+                                        // onClickFn = handleCart();
+
                                     } else if (socialIcon.name === "wish") {
                                         iconName = "ic:sharp-account-circle";
                                     } else if (socialIcon.name === "bag") {
@@ -257,7 +74,7 @@ export default function Navbar() {
                                     }
 
                                     return (
-                                        <Link key={index} to={socialIcon.link} className="hover:text-green-600">
+                                        <Link key={index} onClick={onClickFn} to={socialIcon.link} className="hover:text-green-600">
                                             <Icon icon={iconName || ""} fontSize={30} />
                                         </Link>
                                     );
@@ -273,7 +90,7 @@ export default function Navbar() {
                 {/* Links e Sublinks */}
 
                 <div className="flex w-full max-w-[800px] mx-auto jusitfy-center pt-7">
-                    {templateData.headerContent.navLinks.map((navLink, index) => (
+                    {data.headerContent.navLinks.map((navLink, index) => (
                         <div
                             className="container sublinks relative cursor-pointer flex items-center justify-center"
                             key={index}
@@ -290,7 +107,7 @@ export default function Navbar() {
 
                                 >
                                     {navLink.sub_links.map((sublink, index) => (
-                                        <li key={index} className="my-4">
+                                        <li key={index} className="my-6 pl-6">
                                             <Link to={sublink.link} className="relative">
                                                 {sublink.name}
                                             </Link>
@@ -305,7 +122,7 @@ export default function Navbar() {
 
             <div className="flex md:hidden justify-between items-center w-full relative">
                 <div className="logoMobile flex">
-                    <h1>{templateData.headerContent.logoImg}</h1>
+                    <h1>{data.headerContent.logoImg}</h1>
                 </div>
 
                 <div className="flex">
@@ -317,7 +134,7 @@ export default function Navbar() {
             <div className={`${mobileMenuActive ? 'flex flex-col p-4 bg-white h-screen absolute top-0 right-0 z-20 w-[70vw]' : 'hidden'}`}>
                 <nav>
                     <ul className="flex flex-col gap-5 items-center">
-                        {templateData.headerContent.navLinks.map((navLink, index) => (
+                        {data.headerContent.navLinks.map((navLink, index) => (
                             <li key={index} className="flex">
                                 <Link to={navLink.link}>{navLink.name}</Link>
                             </li>
