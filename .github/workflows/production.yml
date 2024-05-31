@@ -15,10 +15,10 @@ jobs:
         - uses: actions/checkout@v4
 
         - name: Install Vercel CLI
-          run: yarn add --global vercel
+          run: npm install --global vercel
 
         - name: Pull Vercel Environment Information
-          run: yarn install
+          run: npm install
             run: vercel pull --yes --token=${{ secrets.VERCEL_TOKEN }}
 
         - name: Build Project React Template
