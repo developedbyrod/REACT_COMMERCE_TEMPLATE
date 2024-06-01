@@ -7,6 +7,7 @@ export default function Slider(data : sliderProps){
   const [currentSlide, setCurrentSlide] = useState(0);
   const length = data.slides.length;
 
+
 const handleNextSlide = () => {
   setCurrentSlide(currentSlide === length - 1 ? 0 : currentSlide + 1);
 };
@@ -15,13 +16,21 @@ const handlePreviousSlide = () => {
   setCurrentSlide(currentSlide === 0 ? length - 1 : currentSlide - 1);
 };
 
+
+{/* TODO - Criar função optimizada para o Slider */}
+
+data.autoPlay && setTimeout(handleNextSlide, data.interval);
+
   return (
     <section className={`slider`}>
         <div className={`relative flex items-center justify-center w-full overflow-hidden`}>
             {data.slides.map((slide, index) => {
               return(
                 
-                  <div className={index === currentSlide ? 'flex' : 'hidden'} key={index}>
+                  <div className={index === currentSlide ? 'flex transition-opacity duration-700 ease-in-out' : 'opacity 0'} 
+                       style={{visibility: index === currentSlide ? 'visible' : 'hidden'}}
+                       key={index}
+                  >
                         <div className={`w-full relative `}>
                           <div className={`w-full`}>
 
