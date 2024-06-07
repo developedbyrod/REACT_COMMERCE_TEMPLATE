@@ -1,6 +1,121 @@
 import { HeaderDataProps, ProductType } from "../types"
-import Logo from "../assets/kitchen_logo.png";
+import Logo from "../assets/thunder_black.png";
 
+export const footerData = {
+    contact: [
+        {
+            name: "Contact Us",
+            link: "/contact"
+        },
+        {
+            name: "About Us",
+            link: "/about"
+        },
+        {
+            name: "FAQ",
+            link: "/faq"
+        },
+        {
+            name: "Privacy Policy",
+            link: "/privacy"
+        }
+    ],
+    account: [
+        {
+            name: "My account",
+            link: "/account"
+        },
+        {
+            name: "Login / Register",
+            link: "/login"
+        },
+        {
+            name: "Cart",
+            link: "/checkout"
+        },
+        {
+            name: "Wishlist",
+            link: "/wish"
+        }
+    ],
+    quickLinks: [
+        {
+            name: "Privacy Policy",
+            link: "/privacy"
+        },
+        {
+            name: "Terms of Use",
+            link: "/terms"
+        },
+        {
+            name: "Contact Us",
+            link: "/contact"
+        },
+        {
+            name: "Donate",
+            link: "/contact"
+        },
+    ],
+    socialIcons: [
+        {
+            name: "Facebook",
+            link: "https://www.facebook.com"
+        },
+        {
+            name: "Twitter",
+            link: "https://www.twitter.com"
+        },
+        {
+            name: "Instagram",
+            link: "https://www.instagram.com"
+        },
+        {
+            name: "LinkedIn",
+            link: "https://www.linkedin.com"
+        }
+    ],
+    companyInfo:[
+        {
+            name: "Company",
+            link: "/company"
+        },
+        {
+            name: "Careers",
+            link: "/careers"
+        },
+        {
+            name: "Press",
+            link: "/press"
+        },
+        {
+            name: "Blog",
+            link: "/blog"
+        }
+    ],
+    paymentMethods:[
+        {   
+            img: "https://www.visa.com",
+            name: "Visa",
+            link: "https://www.visa.com"
+        },
+        {
+            img: "https://www.visa.com",
+            name: "Mastercard",
+            link: "https://www.mastercard.com"
+        },
+        {
+            img: "https://www.visa.com",
+            name: "Paypal",
+            link: "https://www.paypal.com"
+        },
+
+        {
+            name: "American Express",
+            img: "https://www.visa.com",
+            link: "https://www.americanexpress.com"
+        }
+    ]
+}
 export const sliderData = {
     slides: [
         {
@@ -25,9 +140,33 @@ export const sliderData = {
     showArrows: true,
     showDots: true,
     showButton: false,
-    showLink: true,
+    showLink: false,
     width: 'full',
 }
+
+// export const sliderData = {
+//     slides: [
+//         {
+//             url: "https://tse1.mm.bing.net/th?id=OIG2.1TbVehgS1rlFVtJr5Fml&pid=ImgGn",
+//             link: "https://www.google.com",
+//         },
+//         {
+//         url: "https://tse1.mm.bing.net/th?id=OIG2.BjgubynX41Jh7Ho8bNLg&pid=ImgGn",
+//             link: "https://www.google.com",
+//         },
+//         {
+//             url: "https://tse1.mm.bing.net/th?id=OIG2.1TbVehgS1rlFVtJr5Fml&pid=ImgGn.QFATvMrIIGNI4p2WnFzB&form=SYDBIC",
+//             link: "https://www.google.com",
+//         },
+//     ],
+//     autoPlay: false,
+//     interval: 5800,
+//     showArrows: false,
+//     showDots: false,
+//     showButton: false,
+//     showLink: false,
+//     width: 'full',
+// }
 
 export const productsData = [
     {
@@ -84,7 +223,7 @@ export const headerData: HeaderDataProps = {
         ],
         navLinks: [
             {
-                name: "Home",
+                name: "Kitchen",
                 link: "/",
                 sub_links: [
                     {
@@ -102,7 +241,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
+                name: "Garden",
                 link: "/",
                 sub_links: [
                     {
@@ -120,7 +259,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
+                name: "Bathroom",
                 link: "/",
                 sub_links: [
                     {
@@ -138,7 +277,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
+                name: "Utilities",
                 link: "/",
                 sub_links: [
                     {
@@ -156,7 +295,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
+                name: "Decorations",
                 link: "/",
                 sub_links: [
                     {
@@ -174,7 +313,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
+                name: "Lighting",
                 link: "/",
                 sub_links: [
                     {
@@ -192,25 +331,7 @@ export const headerData: HeaderDataProps = {
                 ]
             },
             {
-                name: "Home",
-                link: "/",
-                sub_links: [
-                    {
-                        name: "Sublink 1",
-                        link: "/sublink1"
-                    },
-                    {
-                        name: "Sublink 2",
-                        link: "/sublink2"
-                    },
-                    {
-                        name: "Sublink 3",
-                        link: "/sublink3"
-                    },
-                ]
-            },
-            {
-                name: "Home",
+                name: "Furniture",
                 link: "/",
                 sub_links: [
                     {

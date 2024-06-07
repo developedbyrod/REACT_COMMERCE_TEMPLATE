@@ -1,11 +1,11 @@
-import { createContext, useReducer } from "react";
+import React, { createContext, useReducer } from "react";
 import { authReducer, initialState } from "../authReducer/authReducer";
 import { AuthContextProps, credentialsProps } from "../../../types";
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined)
 
 
-export default function AuthContextProvider({ children }: { children: React.ReactNode }) {
+export default function AuthContextProvider({ children } : { children: React.ReactNode}) {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
     const login = async (credentials: credentialsProps) => {

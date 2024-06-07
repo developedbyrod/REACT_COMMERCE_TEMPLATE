@@ -4,7 +4,6 @@ import { AuthContextProps, credentialsProps } from "../../../types";
 
 const AuthContext = createContext<AuthContextProps | undefined>(undefined)
 
-
 export default function AuthContextProvider({ children }: { children: React.ReactNode }) {
     const [state, dispatch] = useReducer(authReducer, initialState);
 
